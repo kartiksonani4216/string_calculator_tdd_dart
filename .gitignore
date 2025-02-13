@@ -1,0 +1,25 @@
+# Dart & Flutter related files
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+# IntelliJ / VS Code settings
+.idea/
+.vscode/
+
+# MacOS / Linux / Windows system files
+.DS_Store
+*.log
+*.swp
+
+# Coverage reports
+coverage/
+
+# Executables & compiled files
+*.exe
+*.out
+*.pyc
+
+# Other
+test-results/
