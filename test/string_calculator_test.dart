@@ -37,7 +37,20 @@ void main() {
 
     // Test to ensure that negative numbers throw an ArgumentError exception with a proper message
     test('Negative numbers should throw an exception', () {
-      expect(() => calculator.add("1,-2,3,-4"), throwsA(isA<ArgumentError>()));
+      expect(
+          () => calculator.add("1,-2,3,-4"),
+          throwsA(isA<ArgumentError>().having((e) => e.message, 'message',
+              contains('Negatives not allowed: -2, -4'))));
+    });
+
+    // Test to check if large numbers are handled correctly
+    test('Large numbers should be summed correctly', () {
+      expect(calculator.add("1000,2000,3000"), equals(6000));
+    });
+
+    // Test to verify handling of mixed valid and invalid inputs
+    test('Invalid input should throw an exception', () {
+      expect(() => calculator.add("1,a,3"), throwsA(isA<FormatException>()));
     });
   });
 }
